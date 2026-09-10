@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video</title>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
 </head>
-
 <body>
 
-<h2 id="result">Loading...</h2>
-
 <script>
-const path = window.location.pathname;
+(function () {
 
-const match = path.match(/\/video\/(.+)\/?$/);
+    const path = window.location.pathname;
 
-if (match) {
+    // /port/ এর পরের নাম বের করবে
+    const match = path.match(/^\/port\/([^\/]+)\/?$/);
 
-    const slug = decodeURIComponent(match[1]);
+    if (match) {
 
-    document.getElementById("result").textContent =
-        "Video Slug: " + slug;
+        const slug = match[1];
 
-} else {
+        // .html ফাইলে redirect
+        window.location.replace(
+            "/port/" + slug + ".html"
+        );
 
-    document.getElementById("result").textContent =
-        "Page Not Found";
+    } else {
 
-}
+        document.body.innerHTML = "<h2>Page Not Found</h2>";
+
+    }
+
+})();
 </script>
 
 </body>
