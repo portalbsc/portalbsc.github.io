@@ -1,14 +1,40 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal BSC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
 </head>
+
 <body>
 
-<h1>Portal BSC</h1>
-<p>GitHub Pages is working.</p>
+<p>Redirecting...</p>
+
+<script>
+(function () {
+
+  // /port/ এর পরের অংশ বের করবে
+  const path = window.location.pathname;
+  const match = path.match(/^\/port\/([^\/]+)\/?$/);
+
+  if (!match) {
+    document.body.innerHTML = "<h2>Invalid link</h2>";
+    return;
+  }
+
+  const slug = decodeURIComponent(match[1]);
+
+  // আপনার Blogger destination
+  const target =
+    "https://blogger-site-linked.blogspot.com/2026/09/viral-pdf.html";
+
+  // Redirect
+  window.location.replace(target);
+
+})();
+</script>
 
 </body>
 </html>
+```
