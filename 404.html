@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+
+<body>
+
+<h2 id="result">Loading...</h2>
+
+<script>
+const path = window.location.pathname;
+
+const match = path.match(/\/video\/(.+)\/?$/);
+
+if (match) {
+
+    const slug = decodeURIComponent(match[1]);
+
+    document.getElementById("result").textContent =
+        "Video Slug: " + slug;
+
+} else {
+
+    document.getElementById("result").textContent =
+        "Page Not Found";
+
+}
+</script>
+
+</body>
+</html>
